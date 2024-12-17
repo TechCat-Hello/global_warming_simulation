@@ -24,7 +24,7 @@ def calculate_temperature_rise(annual_emissions, years):
     
     
     temperature_rise = (cumulative_emissions * reference_temperature_rise) / reference_emissions
-    return round(temperature_rise, 3), cumulative_emissions
+    return round(temperature_rise, 2), cumulative_emissions
 
 # グラフの作成
 def create_graph(annual_emissions, years):
@@ -116,6 +116,9 @@ def download_excel():
 
 if __name__ == "__main__":
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-    app.run(host="0.0.0.0", port=8080)  # 本番環境用
+    # Render環境でのデバッグモードの制御
+    #本番環境用
+    debug_mode = os.getenv("FLASK_DEBUG", "False").lower() == "true"
+    app.run(host="0.0.0.0", port=8080, debug=debug_mode) 
 
-    #app.run(debug=True)
+
