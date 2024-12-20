@@ -6,23 +6,30 @@
 ## アプリのスクリーンショット
 
 
+
 ### 【メインページ】
 ![Main Page](image/main_page.png)
+
 
 ### 【グラフの画面】
 ![Graph Page](image/graph_page.png)
 
+
 ### 【CSV・Excelダウンロードボタンの画面】
 ![Download Buttons](image/download_buttons.png)
+
 
 ### 【CSVの画面】
 ![CSV Screen](image/csv_view.png)
 
+
 ### 【Excelの画面】
 ![Excel Screen](image/excel_view.png)
 
+
 ### 【エラー画面】
 ![Error Screen](image/error_page.png)
+
 
 ## 機能一覧
 - CO₂排出量と経過年数を入力し、将来の気温上昇を予測。
