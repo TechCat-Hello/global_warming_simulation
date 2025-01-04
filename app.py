@@ -6,6 +6,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # 環境変数から取得
+if not SECRET_KEY:  # 環境変数が未設定の場合
+    raise RuntimeError("SECRET_KEY is not set. Please set it in the environment variables.")
+
 
 UPLOAD_FOLDER = 'static/files'  # 保存先ディレクトリ
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -119,6 +123,6 @@ if __name__ == "__main__":
     # Render環境でのデバッグモードの制御
     #本番環境用
     debug_mode = os.getenv("FLASK_DEBUG", "False").lower() == "true"
-    app.run(host="0.0.0.0", port=8080, debug=debug_mode) 
+    app.run(host="0.0.0.0", port=5000, debug=debug_mode, use_reloader=False) 
 
 
