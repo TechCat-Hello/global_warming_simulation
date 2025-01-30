@@ -4,12 +4,15 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  # 環境変数から取得
-if not SECRET_KEY:  # 環境変数が未設定の場合
-    raise RuntimeError("SECRET_KEY is not set. Please set it in the environment variables.")
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')  
 
+if not app.config['SECRET_KEY']:
+    raise RuntimeError("SECRET_KEY is not set. Please set it in the environment variables.")
 
 UPLOAD_FOLDER = 'static/files'  # 保存先ディレクトリ
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
