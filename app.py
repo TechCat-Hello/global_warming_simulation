@@ -25,13 +25,9 @@ def calculate_temperature_rise(annual_emissions, years):
     temperature_rise = (cumulative_emissions * 1.5) / 400
     return temperature_rise[-1], cumulative_emissions[-1]  # 最後の値を返す
 
-    # AR6の単純比例計算: 400 Gtで1.5°C
+    #IPCC第6次評価報告書の単純比例計算: 400 Gtで1.5°C
     #reference_emissions = 400  # 残排出量 (Gt)
     #reference_temperature_rise = 1.5  # 上昇温度 (°C)
-    
-    
-    temperature_rise = (cumulative_emissions * reference_temperature_rise) / reference_emissions
-    return round(temperature_rise, 2), cumulative_emissions
 
 # グラフの作成
 def create_graph(annual_emissions, years):
